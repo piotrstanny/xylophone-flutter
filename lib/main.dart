@@ -9,6 +9,18 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$sound.wav');
   }
 
+  Expanded buildKey(int soundNo, Color keyColour) {
+    return Expanded(
+      child: RaisedButton(
+        color: keyColour,
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 90.0),
+        onPressed: () {
+          playSound(soundNo);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,76 +33,13 @@ class XylophoneApp extends StatelessWidget {
               textDirection: TextDirection.rtl,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Expanded(
-                  child: RaisedButton(
-                    color: Colors.red,
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20.0, horizontal: 90.0),
-                    onPressed: () {
-                      playSound(1);
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RaisedButton(
-                    color: Colors.orange,
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20.0, horizontal: 90.0),
-                    onPressed: () {
-                      playSound(2);
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RaisedButton(
-                    color: Colors.yellow,
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20.0, horizontal: 90.0),
-                    onPressed: () {
-                      playSound(3);
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RaisedButton(
-                    color: Colors.lightGreen,
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20.0, horizontal: 90.0),
-                    onPressed: () {
-                      playSound(4);
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RaisedButton(
-                    color: Colors.teal,
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20.0, horizontal: 90.0),
-                    onPressed: () {
-                      playSound(5);
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RaisedButton(
-                    color: Colors.blue,
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20.0, horizontal: 90.0),
-                    onPressed: () {
-                      playSound(6);
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: RaisedButton(
-                    color: Colors.deepPurpleAccent,
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20.0, horizontal: 90.0),
-                    onPressed: () {
-                      playSound(7);
-                    },
-                  ),
-                ),
+                buildKey(1, Colors.red),
+                buildKey(2, Colors.orange),
+                buildKey(3, Colors.yellow),
+                buildKey(4, Colors.lightGreen),
+                buildKey(5, Colors.teal),
+                buildKey(6, Colors.blue),
+                buildKey(7, Colors.deepPurpleAccent),
               ],
             ),
           ),
