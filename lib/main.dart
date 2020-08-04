@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
-import 'dart:math';
 
 void main() => runApp(XylophoneApp());
 
@@ -11,15 +10,30 @@ class XylophoneApp extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Center(
-            child: RaisedButton(
-              color: Colors.amberAccent,
-              padding: EdgeInsets.all(50.0),
-              onPressed: () {
-                final player = AudioCache();
-                int sound = Random().nextInt(7) + 1;
-                player.play('note$sound.wav');
-              },
-              child: Text('Play Sound'),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RaisedButton(
+                  color: Colors.red,
+                  padding:
+                      EdgeInsets.symmetric(vertical: 20.0, horizontal: 90.0),
+                  onPressed: () {
+                    final player = AudioCache();
+                    player.play('note1.wav');
+                  },
+                  child: Text('1'),
+                ),
+                RaisedButton(
+                  color: Colors.orange,
+                  padding:
+                      EdgeInsets.symmetric(vertical: 20.0, horizontal: 90.0),
+                  onPressed: () {
+                    final player = AudioCache();
+                    player.play('note2.wav');
+                  },
+                  child: Text('2'),
+                ),
+              ],
             ),
           ),
         ),
